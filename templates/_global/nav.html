@@ -1,0 +1,6 @@
+<nav>
+  <ul>
+    <li><a href="{{ url('updates') }}" {% if craft.request.firstSegment == 'updates' %}class="active"{% endif %}>updates</a></li>
+    <li><a href="{{ url('groups') }}" {% if craft.request.firstSegment == 'groups' %}class="active"{% endif %}>groups</a></li>
+  </ul>
+</nav>
