@@ -38,6 +38,29 @@ Whenever possible, code should have comments with relevant contextual informatio
 
 The FDPA site is built on Craft CMS. Craft is fairly easy to work within but it requires you spin up a few things on your computer. This page has everything we know so far about how to do that. If you run into any issues, please document your fixes here.
 
+### Setting up Environment File
+
+This setup comes with [nystudio107](https://github.com/nystudio107)’s Craft multi-environment config. This is preferable to storing and editing the setups in the `config.php` and `general.php` files.
+
+The setup is simple:
+
+**1. Duplicate and rename `example.env.php`**
+
+As the step says, you need to duplicate the `example.env.php` file and rename it to `.env.php`.
+
+**2. Add your server data to `.env.php`**
+
+The variables are detailed in the file, but are presented here, as well:
+
+- `CRAFT_ENVIRONMENT`: The Craft environment we're running in ('local', 'staging', 'live', etc.).
+- `DB_HOST`: The database server name or IP address. Usually this is 'localhost' or '127.0.0.1'.
+- `DB_NAME`: The name of the database to select.
+- `DB_USER`: The database username to connect with.
+- `DB_PASS`: The database password to connect with.
+- `SITE_URL`: The site url to use; it can be hard-coded as well
+- `BASE_URL`: The base url environmentVariable to use for Assets; it can be hard-coded as well
+- `BASE_PATH`: The base path environmentVariable for Assets; it can be hard-coded as well 
+
 ### Getting Setup
 
 **1. Install MAMP**
