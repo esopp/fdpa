@@ -1,0 +1,34 @@
+.pure-menu {
+	background: #9EC262;
+	width: 100%;
+}
+
+.pure-menu-link {
+	color: white;
+}
+
+.pure-menu-horizontal .pure-menu-children {
+	width: 100%;
+}
+
+.pure-menu-children .pure-menu-link {
+	color: white;
+	background: #83C56D;
+	width: 100%;
+}
+
+.custom-mobile .pure-menu-children {
+	
+	font-size: 1.5em;
+	width: 100%;
+}
+
+.pure-menu-expanded {
+	background: #83C56D;
+}
+
+@media screen and (min-width: 48em) {
+	.custom-mobile {
+		display: none;
+	}
+}
