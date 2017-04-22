@@ -18,10 +18,10 @@
   </head>
   <body>
     <!-- Start Site HTML -->
-    <div class="custom-mobile pure-menu pure-menu-horizontal" role="navigation" aria-label="main mobile navigation menu">
+    <nav id="mobileMainMenu" class="custom-mobile pure-menu pure-menu-horizontal" role="navigation" aria-label="main mobile navigation menu">
         <ul class="pure-menu-list">
-        <li class="pure-menu-item pure-menu-has-children" aria-haspopup="true">
-        <a id="hasDropdown1" href="#" class="pure-menu-link">MENU</a>
+        <li class="pure-menu-item custom-mobile-menu-item" aria-haspopup="true">
+        <a id="hasDropdown1" href="#"><img id="menuIcon" src="menu.png" /></a>
         <ul id="dropdown1" class="pure-menu-children" aria-hidden="true" aria-label="submenu">
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">The Problem</a></li>
@@ -33,8 +33,9 @@
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">Join Us</a></li>
         </ul>
         </li>
+        <li class="pure-menu-item custom-mobile-menu-item"><a href="#"><img src="icon.png" /></a></li>
         </ul>
-    </div>
+    </nav>
 
 
     <!-- End Site HTML -->
@@ -46,10 +47,16 @@
     <script>
         //Add behavior to show or hide the submenu, "dropdown1" to the MENU icon
         $("#hasDropdown1").click(function(){
-            if ($("#dropdown1").attr("aria-hidden") == "true") 
+            if ($("#dropdown1").attr("aria-hidden") == "true") {
              $("#dropdown1").attr("aria-hidden", "false").show('fast');
-            else 
-             $("#dropdown1").attr("aria-hidden", "true").hide('fast');
+             $("#mobileMainMenu").addClass("custom-menu-expanded");
+             $("#menuIcon").addClass("custom-menu-selected");
+            }
+            else {
+                $("#dropdown1").attr("aria-hidden", "true").hide('fast');
+                $("#mobileMainMenu").removeClass("custom-menu-expanded");
+                $("#menuIcon").removeClass("custom-menu-selected");
+            }
             
         });
     </script>

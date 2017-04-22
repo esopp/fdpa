@@ -1,31 +1,72 @@
+
 .pure-menu {
 	background: #9EC262;
-	width: 100%;
 }
 
 .pure-menu-link {
 	color: white;
 }
 
-.pure-menu-horizontal .pure-menu-children {
-	width: 100%;
+/**
+* Top-level mobile menu items. 
+**/
+.custom-mobile-menu-item {
+	margin: 15px;
 }
 
-.pure-menu-children .pure-menu-link {
-	color: white;
+.custom-mobile-menu-item:nth-child(2) {
+	float: right;
+	border: 3px solid red;
+}
+
+/**
+* programmatically assigned to the top level nav menu
+* (a ".pure-menu") to change color when the submenu is active.
+**/
+.custom-menu-expanded {
 	background: #83C56D;
-	width: 100%;
 }
 
+/**
+* programmatically assigned to top level nav menu item
+* to change color when selected.
+**/
+.custom-menu-selected {
+	border: 1px solid #308128;
+	background: #61A34B;
+}
+
+
+/**
+* Section for mobile-only classes:
+* 	.custom-mobile
+*	.custom-mobile-menu-item
+**/
+
+
+
+/**
+*
+* Container of the <li> items in the mobile popout/submenu.
+*
+* width and position relative to the parent element.
+* width here is given as "100vw" because "width: 100%" 
+* will set width relative to the parent <li> 
+* element, rather than the full screen. 
+*
+**/
 .custom-mobile .pure-menu-children {
-	
 	font-size: 1.5em;
-	width: 100%;
+	width: 100vw;
+	background: #83C56D;
+	margin: 2em 0 0 -15px;
 }
 
-.pure-menu-expanded {
-	background: #83C56D;
-}
+
+/**
+* Elements with "custom-mobile" class dissapear 
+* on screens wider than 48em (768px). 
+**/
 
 @media screen and (min-width: 48em) {
 	.custom-mobile {
