@@ -21,8 +21,10 @@
     <nav id="mobileMainMenu" class="custom-mobile pure-menu pure-menu-horizontal" role="navigation" aria-label="main mobile navigation menu">
         <ul class="pure-menu-list">
         <li class="pure-menu-item custom-mobile-menu-item" aria-haspopup="true">
-        <a id="hasDropdown1" href="#"><img id="menuIcon" src="menu.png" /></a>
+        <!-- Opens submenu programmatically. Do not set href link for this anchor. -->
+        <a id="hasDropdown1" href="#"><img id="menuIcon" class="pure-img" src="menu.png" alt="menu icon" /></a>
         <ul id="dropdown1" class="pure-menu-children" aria-hidden="true" aria-label="submenu">
+        	<!--TO DO: Set links for menu options-->
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">The Problem</a></li>
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">How We'll Fix It</a></li>
@@ -33,7 +35,8 @@
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">Join Us</a></li>
         </ul>
         </li>
-        <li class="pure-menu-item custom-mobile-menu-item"><a href="#"><img src="icon.png" /></a></li>
+        <!-- TO DO: Anchor should eventually point to home page. -->
+        <li class="custom-mobile-menu-item"><a href="#"><img class="pure-img" src="icon.png" alt="[fdpa icon contains the words 'fair disticts pa' arranged around the shape of the state of Pennsylvania]" /></a></li>
         </ul>
     </nav>
 
@@ -45,20 +48,30 @@
         crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
     <script>
+    	/**
+		* Show or hide mobile menu.
+    	**/
+    	function toggleMobileMenu() {
+            var openMobileMenu = function() {
+    		$("#dropdown1").attr("aria-hidden", "false").show('fast');
+            $("#mobileMainMenu").addClass("custom-menu-expanded");
+            $("#menuIcon").addClass("custom-menu-selected");
+    		}
+    		var closeMobileMenu = function() {
+    		 $("#dropdown1").attr("aria-hidden", "true").hide('fast');
+             $("#mobileMainMenu").removeClass("custom-menu-expanded");
+             $("#menuIcon").removeClass("custom-menu-selected");
+    		}
+
+    		if ($("#dropdown1").attr("aria-hidden") == "true") openMobileMenu();
+            else closeMobileMenu();  
+    	}
+    	
+
         //Add behavior to show or hide the submenu, "dropdown1" to the MENU icon
-        $("#hasDropdown1").click(function(){
-            if ($("#dropdown1").attr("aria-hidden") == "true") {
-             $("#dropdown1").attr("aria-hidden", "false").show('fast');
-             $("#mobileMainMenu").addClass("custom-menu-expanded");
-             $("#menuIcon").addClass("custom-menu-selected");
-            }
-            else {
-                $("#dropdown1").attr("aria-hidden", "true").hide('fast');
-                $("#mobileMainMenu").removeClass("custom-menu-expanded");
-                $("#menuIcon").removeClass("custom-menu-selected");
-            }
-            
-        });
+        $("#hasDropdown1").click(toggleMobileMenu);
+
+        $(".pure-menu-children .pure-menu-item").click(toggleMobileMenu);
     </script>
   </body>
 </html>

@@ -1,22 +1,43 @@
 
 .pure-menu {
 	background: #9EC262;
+	height: 130px;
+	position: relative;
 }
 
 .pure-menu-link {
 	color: white;
 }
 
+
 /**
 * Top-level mobile menu items. 
 **/
-.custom-mobile-menu-item {
-	margin: 15px;
+
+.custom-mobile .pure-menu-list {
+	width: 100%;
+	height: 130px;
+	position: relative;
 }
 
+/**
+* Added to top-level <li> elements
+**/
+.custom-mobile-menu-item {
+	display: inline-block;
+	position: absolute;
+}
+.custom-mobile-menu-item:first-child {
+	left: 15px;
+	height: 50px;
+	top: 50%;
+	margin-top: -26px;
+}
 .custom-mobile-menu-item:nth-child(2) {
-	float: right;
-	border: 3px solid red;
+	right: 15px;
+	width: 100px;
+	top: 50%;
+	margin-top: -36px;
 }
 
 /**
@@ -32,13 +53,14 @@
 * to change color when selected.
 **/
 .custom-menu-selected {
-	border: 1px solid #308128;
+	margin: 0px;
+	box-shadow: 0px 0px 7px #308128;
 	background: #61A34B;
 }
 
 
 /**
-* Section for mobile-only classes:
+* List of mobile-only menu classes:
 * 	.custom-mobile
 *	.custom-mobile-menu-item
 **/
@@ -59,7 +81,19 @@
 	font-size: 1.5em;
 	width: 100vw;
 	background: #83C56D;
-	margin: 2em 0 0 -15px;
+	margin: 38px 0 0 -15px;
+}
+
+.custom-mobile .pure-menu-link {
+	margin: 8px 0 8px 16px;
+	padding-left: 27px;
+	line-height: 45%;
+}
+
+.custom-mobile .pure-menu-link:hover, .custom-mobile .pure-menu-link:active {
+	padding-left: 20px;
+	border-left: 7px solid #064C2A;
+	background: #83C56D;
 }
 
 
